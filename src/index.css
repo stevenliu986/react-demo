@@ -1,0 +1,15 @@
+body {
+  background-color: lightblue;
+}
+
+
+.header {
+  color: greenyellow;
+  font-size: 64px;
+  border: 2px solid red;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding-left: 100px;
+  height: 120px;
+  line-height: 120px;
+}
