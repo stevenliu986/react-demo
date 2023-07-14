@@ -5,6 +5,7 @@ const DemoOne = (props) => {
   return (
     <div className="box">
       <h2>{title}</h2>
+      <h3>{x}</h3>
     </div>
   );
 };
