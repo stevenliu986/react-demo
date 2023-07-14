@@ -1,20 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Dialog from "./components/Dialog";
-import "./index.css";
+import VoteFunction from "./components/VoteFunction";
+// import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// const data = [
-//   { id: 1, title: "Hello" },
-//   { id: 2, title: "World" },
-//   { id: 3, title: "React" },
-// ];
-// let text = "React Demo";
 root.render(
   <>
-    <Dialog />
+    <VoteFunction title="React入门还是比较容易的！" />
   </>
 );
+
+// import Dialog from "./components/Dialog";
+// root.render(
+//   <>
+//     <Dialog title="友情提示" content="好好学习，天天向上" />
+//     <Dialog content="学好React很有用！">
+//       <button>确定</button>
+//       <button>不确定</button>
+//     </Dialog>
+//   </>
+// );
 
 // import DemoOne from "./components/DemoOne";
 // root.render(
