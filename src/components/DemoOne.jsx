@@ -16,12 +16,29 @@ const DemoOne = (props) => {
   // 可以基于React.Children对象中提供的方法对props.children进行处理，方法有：count/foreach/map/toArray等
   // 好处：在这些方法的内部，已经对children的各种形式做了处理
   children = React.Children.toArray(children);
+  console.log(children);
+  let headerSlot = [],
+    footerSlot = [],
+    defaultSlot = [];
+
+  children.forEach((child) => {
+    let { slot } = child.props;
+    if (slot === "header") {
+      headerSlot.push(child);
+    } else if (slot === "footer") {
+      footerSlot.push(child);
+    } else {
+      defaultSlot.push(child);
+    }
+  });
   return (
     <div className="box">
-      {children[0]}
+      {headerSlot}
+      <br />
       <h2>{title}</h2>
       <h3>{x}</h3>
-      {children[children.length - 1]}
+      <br />
+      {footerSlot}
     </div>
   );
 };
