@@ -78,11 +78,11 @@ class VoteClass extends React.Component {
   }
 
   UNSAFE_componentWillMount() {
-    console.log("第一次渲染开始");
+    console.log("UNSAFE_componentWillMount：第一次渲染开始");
   }
 
   componentDidMount() {
-    console.log("第一次渲染完毕");
+    console.log("componentDidMount：第一次渲染完毕");
   }
 }
 

@@ -1,17 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import VoteClass from "./components/VoteClass";
-
-// import "./index.css";
+import DemoTwo from "./components/DemoTwo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <>
+    <DemoTwo />
+  </>
+);
+
+/*
+
+import VoteClass from "./components/VoteClass";
+import "./index.css";
 root.render(
   <>
     <VoteClass title="React入门还是比较容易的！" />
   </>
 );
 
-/*
 import VoteFunction from "./components/VoteFunction";
 root.render(
   <>
