@@ -1,0 +1,36 @@
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
+
+// body {
+//   background-color: #f3f5f7;
+// }
+
+.task-box {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 800px;
+  // background-color: #f3f5f7;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .tag-box {
+    margin: 15px 0;
+
+    .ant-tag {
+      margin-inline-end: 20px;
+      padding-inline: 15px;
+      border-radius: 0;
+      font-size: 14px;
+      line-height: 30px;
+      cursor: pointer;
+    }
+  }
+}

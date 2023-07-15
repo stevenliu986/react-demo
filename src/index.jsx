@@ -1,19 +1,22 @@
+import { ConfigProvider } from "antd";
+import zhCN from "antd/locale/zh_CN";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import DemoTwo from "./components/DemoTwo";
+import Task from "./components/Task";
+import "./index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <>
-    <DemoTwo />
-  </>
+  <ConfigProvider locale={zhCN}>
+    <Task />
+  </ConfigProvider>
 );
 
 /*
 
 import VoteClass from "./components/VoteClass";
-import "./index.css";
+import "./index.scss";
 root.render(
   <>
     <VoteClass title="React入门还是比较容易的！" />
