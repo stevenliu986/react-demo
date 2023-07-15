@@ -1,4 +1,4 @@
-import { Button, Table, Tag } from "antd";
+import { Button, Popconfirm, Table, Tag } from "antd";
 import React from "react";
 import "./Task.scss";
 
@@ -11,7 +11,7 @@ const zero = (text) => {
 const formatTime = (time) => {
   let arr = time.match(/\d+/g),
     [, month, day, hours = "00", minutes = "00"] = arr;
-  return `${zero(month)}-${zero(day)}-${zero(hours)}-${zero(minutes)}`;
+  return `${zero(month)}-${zero(day)} ${zero(hours)}:${zero(minutes)}`;
 };
 
 class Task extends React.Component {
@@ -35,31 +35,44 @@ class Task extends React.Component {
     {
       title: "完成时间",
       dataIndex: "finishDate",
-      key: "finishDate",
+      render: (_, record) => {
+        let { state, time, complete } = record;
+        if (+state === 2) time = complete;
+        return formatTime(time);
+      },
     },
     {
       title: "操作",
-      dataIndex: "action",
-      key: "action",
+      render: (_, record) => {
+        let { state } = record;
+        return (
+          <>
+            <Popconfirm>
+              <Button type="link">删除</Button>
+            </Popconfirm>
+            <Popconfirm>
+              <Button type="link">完成</Button>
+            </Popconfirm>
+          </>
+        );
+      },
     },
   ];
 
   dataSource = [
     {
-      key: "1",
-      id: "1",
-      task: "胡彦斌",
+      id: 1,
+      task: "今天阳光明媚",
       status: 1,
-      finishDate: "2022-11-23",
-      action: "删除",
+      time: "2022-11-23 18:00:00",
+      complete: "2022-11-24 12:30:00",
     },
     {
-      key: "2",
       id: "2",
-      task: "胡彦祖",
+      task: "今天阳光明媚，适合郊游",
       status: 2,
-      finishDate: "",
-      action: "完成",
+      time: "2022-11-23 18:00:00",
+      complete: "2022-11-24 12:30:00",
     },
   ];
 
