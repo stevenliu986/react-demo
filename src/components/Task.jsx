@@ -1,4 +1,4 @@
-import { Button, Popconfirm, Table, Tag } from "antd";
+import { Button, Modal, Popconfirm, Table, Tag } from "antd";
 import React from "react";
 import "./Task.scss";
 
@@ -36,23 +36,26 @@ class Task extends React.Component {
       title: "完成时间",
       dataIndex: "finishDate",
       render: (_, record) => {
-        let { state, time, complete } = record;
-        if (+state === 2) time = complete;
+        let { status, time, complete } = record;
+        if (+status === 2) time = complete;
         return formatTime(time);
       },
     },
     {
       title: "操作",
       render: (_, record) => {
-        let { state } = record;
+        let { status } = record;
         return (
           <>
-            <Popconfirm>
+            <Popconfirm title="删除任务" description="您确定要删除该任务？">
               <Button type="link">删除</Button>
             </Popconfirm>
-            <Popconfirm>
-              <Button type="link">完成</Button>
-            </Popconfirm>
+
+            {+status !== 2 ? (
+              <Popconfirm>
+                <Button type="link">完成</Button>
+              </Popconfirm>
+            ) : null}
           </>
         );
       },
@@ -79,16 +82,26 @@ class Task extends React.Component {
   state = {
     tableData: [],
     tableLoading: false,
+    modalVisible: false,
   };
   render() {
-    let { tableData, tableLoading } = this.state;
+    let { tableData, tableLoading, modalVisible } = this.state;
 
     return (
       <div className="task-box">
         {/* 头部 */}
         <div className="header">
           <h2 className="title">TASK OA 任务管理系统</h2>
-          <Button type="primary">新增任务</Button>
+          <Button
+            type="primary"
+            onClick={() => {
+              this.setState({
+                modalVisible: true,
+              });
+            }}
+          >
+            新增任务
+          </Button>
         </div>
 
         {/* 标签 */}
@@ -106,6 +119,16 @@ class Task extends React.Component {
         />
 
         {/* 对话框 & 表单 */}
+        <Modal
+          title="新增任务窗口"
+          open={modalVisible}
+          onCancel={() => {
+            this.setState({ modalVisible: false });
+          }}
+          onOk={() => {
+            this.setState({ modalVisible: false });
+          }}
+        ></Modal>
       </div>
     );
   }
