@@ -1,4 +1,13 @@
-import { Button, Modal, Popconfirm, Table, Tag } from "antd";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  Modal,
+  Popconfirm,
+  Table,
+  Tag,
+} from "antd";
 import React from "react";
 import "./Task.scss";
 
@@ -84,6 +93,15 @@ class Task extends React.Component {
     tableLoading: false,
     modalVisible: false,
   };
+
+  // 关闭对话框 & 清除表单
+  closeModal = () => {
+    this.setState({ modalVisible: false });
+  };
+
+  // 新增任务
+  submit = () => {};
+
   render() {
     let { tableData, tableLoading, modalVisible } = this.state;
 
@@ -122,13 +140,29 @@ class Task extends React.Component {
         <Modal
           title="新增任务窗口"
           open={modalVisible}
-          onCancel={() => {
-            this.setState({ modalVisible: false });
-          }}
-          onOk={() => {
-            this.setState({ modalVisible: false });
-          }}
-        ></Modal>
+          okText="提交"
+          onCancel={this.closeModal}
+          onOk={this.submit}
+        >
+          <Form>
+            <Form.Item
+              label="任务描述"
+              name="task"
+              validateTrigger="onBlur"
+              rules={[{ required: true, message: "请填写任务描述" }]}
+            >
+              <Input.TextArea rows={4} />
+            </Form.Item>
+            <Form.Item
+              label="预期完成时间"
+              name="time"
+              rules={[]}
+              validateTrigger="onBlur"
+            >
+              <DatePicker showTime />
+            </Form.Item>
+          </Form>
+        </Modal>
       </div>
     );
   }
