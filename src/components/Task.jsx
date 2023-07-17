@@ -144,19 +144,22 @@ class Task extends React.Component {
           onCancel={this.closeModal}
           onOk={this.submit}
         >
-          <Form>
+          <Form layout="vertical" initialValues={{ task: "", time: "" }}>
             <Form.Item
               label="任务描述"
               name="task"
               validateTrigger="onBlur"
-              rules={[{ required: true, message: "请填写任务描述" }]}
+              rules={[
+                { required: true, message: "请填写任务描述" },
+                { min: 6, message: "任务描述字数不能低于6个字" },
+              ]}
             >
               <Input.TextArea rows={4} />
             </Form.Item>
             <Form.Item
               label="预期完成时间"
               name="time"
-              rules={[]}
+              rules={[{ required: true, message: "请选择任务预期完成时间" }]}
               validateTrigger="onBlur"
             >
               <DatePicker showTime />
