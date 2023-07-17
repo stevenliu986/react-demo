@@ -2,7 +2,7 @@ import { Button } from "antd";
 import React, { useState } from "react";
 
 const Vote = (props) => {
-  // 不推荐这种方法来管理state。官方建议：需要多个state，就使用多个useState来管理state。
+  // 不推荐这种方法来管理state。官方建议：需要几个state，就执行几个useState来管理state。
   let [state, setState] = useState({
     supNum: 10,
     oppNum: 5,
