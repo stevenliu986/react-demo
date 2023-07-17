@@ -2,6 +2,7 @@ import { Button } from "antd";
 import React, { useState } from "react";
 
 const Vote = (props) => {
+  // 不推荐这种方法来管理state。官方建议：需要多个state，就使用多个useState来管理state。
   let [state, setState] = useState({
     supNum: 10,
     oppNum: 5,
@@ -9,10 +10,10 @@ const Vote = (props) => {
 
   const handle = (type) => {
     if (type === "sup") {
-      setState({ supNum: state.supNum + 1 });
+      setState({ ...state, supNum: state.supNum + 1 });
       return;
     }
-    setState({ oppNum: state.oppNum + 1 });
+    setState({ ...state, oppNum: state.oppNum + 1 });
   };
   return (
     <div className="vote-box">
