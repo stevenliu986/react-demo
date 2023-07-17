@@ -2,18 +2,25 @@ import { ConfigProvider } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Task from "./components/Task";
+import Vote from "./components/Vote";
 import "./index.scss";
+// import Demo1 from "./components/Demo1";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <ConfigProvider locale={zhCN}>
-    <Task />
+    <Vote title="踊跃投票" />
   </ConfigProvider>
 );
 
 /*
+import Task from "./components/Task";
+root.render(
+  <ConfigProvider locale={zhCN}>
+    <Task />
+  </ConfigProvider>
+);
 
 import VoteClass from "./components/VoteClass";
 import "./index.scss";
