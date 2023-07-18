@@ -2,11 +2,19 @@ import { ConfigProvider } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Vote from "./components/Vote";
+// import Vote from "./components/Vote";
+import Demo from "./components/Demo3";
 import "./index.scss";
-// import Demo1 from "./components/Demo1";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <ConfigProvider locale={zhCN}>
+    <Demo />
+  </ConfigProvider>
+);
+
+/*
 
 root.render(
   <ConfigProvider locale={zhCN}>
@@ -14,7 +22,7 @@ root.render(
   </ConfigProvider>
 );
 
-/*
+
 import Task from "./components/Task";
 root.render(
   <ConfigProvider locale={zhCN}>
