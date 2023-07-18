@@ -3,7 +3,7 @@ import zhCN from "antd/locale/zh_CN";
 import React from "react";
 import ReactDOM from "react-dom/client";
 // import Vote from "./components/Vote";
-import Demo from "./components/Demo4";
+import Demo from "./components/Demo5";
 import "./index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
