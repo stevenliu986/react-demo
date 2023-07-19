@@ -3,14 +3,17 @@ import zhCN from "antd/locale/zh_CN";
 import React from "react";
 import ReactDOM from "react-dom/client";
 // import Vote from "./components/Vote";
-import Demo from "./components/Demo5";
+// import Demo from "./components/Demo5";
+import Menu from "./components/Menu";
+import Nav from "./components/Nav";
 import "./index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <ConfigProvider locale={zhCN}>
-    <Demo />
+    <Nav />
+    <Menu />
   </ConfigProvider>
 );
 
