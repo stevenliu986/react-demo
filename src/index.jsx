@@ -2,7 +2,9 @@ import { ConfigProvider } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import ThemeContext from "./ThemeContext";
 import Vote from "./components/Vote";
+import store from "./store";
 // import Demo from "./components/Demo5";
 
 import "./index.scss";
@@ -10,7 +12,9 @@ import "./index.scss";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ConfigProvider locale={zhCN}>
-    <Vote />
+    <ThemeContext value={{ store }}>
+      <Vote />
+    </ThemeContext>
   </ConfigProvider>
 );
 /*
