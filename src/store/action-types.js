@@ -1,0 +1,7 @@
+/* 统一管理派发行为标识 */
+const VOTE_SUP = "VOTE_SUP";
+const VOTE_OPP = "VOTE_OPP";
+const PERSONAL_SUP = "PERSONAL_SUP";
+const PERSONAL_OPP = "PERSONAL_OPP";
+
+export { PERSONAL_OPP, PERSONAL_SUP, VOTE_OPP, VOTE_SUP };
